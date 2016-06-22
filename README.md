@@ -6,9 +6,9 @@
 
 * [ニフティクラウドmobile backend](http://mb.cloud.nifty.com/)のプッシュ通知機能は、Googleが提供しているCloud Messaging（以下、GCM）と連携することで、通知の配信を行っています
 * Androidアプリでプッシュ通知を受信するまでの設定は以下のような流れとなっています
-  1. GCMの設定とAPIキーの取得
-  2. ニフティクラウド mobile backendでの設定
-  3. アプリでの設定
+   * GCMの設定とAPIキーの取得
+   * ニフティクラウド mobile backendでの設定
+   * アプリでの設定
 * 詳しい設定内容は[プッシュ通知（Android）](http://mb.cloud.nifty.com/doc/current/push/basic_usage_android.html)を参照ください
 
 ## ニフティクラウドmobile backendって何？？
@@ -42,7 +42,7 @@
 
 ![画像5](/readme-img/mBassData.png)
 
-* アプリ設定：プッシュ通知の設定を行う
+* ダッシュボードからアプリ設定→プッシュ通知の設定を行う
 
 ![画像6](/readme-img/mBassPushEnv.png)
 
