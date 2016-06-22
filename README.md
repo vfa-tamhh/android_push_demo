@@ -43,6 +43,8 @@
 ![画像5](/readme-img/mBassData.png)
 
 * ダッシュボードからアプリ設定→プッシュ通知の設定を行う
+   * ダッシュ通知の許可するを設定し、保存します
+   * Google Developer Consoleで取得したAPIキーを設定し、保存します
 
 ![画像6](/readme-img/mBassPushEnv.png)
 
