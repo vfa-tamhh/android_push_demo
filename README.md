@@ -46,7 +46,7 @@
 
 ![画像a6](/readme-img/a006.png)
 
-* Android端末で動作確認をする場合の準備は以上です
+* 準備は以上です
 
 ### 1. [ニフティクラウドmobile backend](http://mb.cloud.nifty.com/)の会員登録とログイン→アプリ作成
 
