@@ -20,13 +20,34 @@
 
 ## 動作環境
 * Windows 7 Professional
-* Android Studio 2.1.2
+* Android Studio v2.1.2  (※2016/06 時点での最新バージョン)
 * Android ver 4x,5x
 
 ※上記内容で動作確認をしています
 
 
 ## 手順
+### 0.プッシュ通知機能使うための準備
+
+* [Google Cloud Platform](https://console.cloud.google.com/) にログインします
+* GCMを利用するためプロジェクトを作成し、APIキー（認証用の鍵）を発行します
+
+![画像a2](/readme-img/a002.png)
+
+![画像a3](/readme-img/a003.png)
+
+![画像a4](/readme-img/a004.png)
+
+* プロジェクトコードの確認をします
+ 
+![画像a5](/readme-img/a005.png)
+
+* GCMの有効化の設定をします
+
+![画像a6](/readme-img/a006.png)
+
+* Android端末で動作確認をする場合の準備は以上です
+
 ### 1. [ニフティクラウドmobile backend](http://mb.cloud.nifty.com/)の会員登録とログイン→アプリ作成
 
 * 上記リンクから会員登録（無料）をします登録ができたらログインをすると下図のように「アプリの新規作成」画面が出るのでアプリを作成します
@@ -73,10 +94,10 @@
 * それぞれ`YOUR_APPLICATION_KEY`と`YOUR_CLIENT_KEY`の部分を書き換えます
  * このとき、ダブルクォーテーション（`"`）を消さないように注意してください！
 
-### 5. ANDROID_SENDER_IDキーの設定
+### 5. Androidのsender IDキーの設定
 
+* GCMから作成されたプロジェクトの後につく番号(#以降数字)が、sender IDです
 * `MainActivity.java`を編集します
-* [mBaaSとGCMの連携に必要な設定](http://mb.cloud.nifty.com/doc/current/tutorial/push_setup_android.html)から作成されたプロジェクト情報のプロジェクトID(#以降数字)を貼り付けます
 
 ![画像10](/readme-img/GCMAPIkey.png)
 
@@ -85,23 +106,33 @@
  
 ### 6. 動作確認
 
-* アプリが起動したら、TOP画面が表示されます
-
+* インストールしたアプリを起動します
+ * プッシュ通知の許可を求めるアラートが出たら、必ず許可してください！
+ 
 ![画像11](/readme-img/Action1.png)
 
-* TOP画面表示に成功したら、[ニフティクラウドmobile backend](http://mb.cloud.nifty.com/)のダッシュボードから「データストア (installationクラス(端末情報))」を確認してみましょう！
+* 起動されたらこの時点でAndroid端末はレジスタレーションIDが取得されます
+* [ニフティクラウドmobile backend](http://mb.cloud.nifty.com/)のダッシュボードから「データストア (installationクラス(端末情報))」を確認してみましょう！
 
 ![画像12](/readme-img/Action2.png)
 
-* ダッシュボードからプッシュ通知を配信設定をします(Android端末に配信)
+* 端末側で起動したアプリは一度閉じておきます
+
+### 7. プッシュ通知を送りましょう！
+
+* いよいよです！実際にプッシュ通知を送ってみましょう！
+* ニフティクラウドmobile backendのダッシュボードで「プッシュ通知」＞「＋新しいプッシュ通知」をクリックします
+* プッシュ通知のフォームが開かれます
+* 必要な項目を入力してプッシュ通知を作成します
 
 ![画像13](/readme-img/Action3.png)
 
-* Android端末からプッシュ通知を確認する
+* Android端末からプッシュ通知を確認しましょう！
+* 少し待つとプッシュ通知が届きます！
 
 ![画像14](/readme-img/Action4.png)
 
-* ダッシュボードからプッシュ通知結果を確認する
+* ダッシュボードからのプッシュ通知結果も確認する
 
 ![画像15](/readme-img/Action5.png)
 
