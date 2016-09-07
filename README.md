@@ -5,6 +5,10 @@
 ## 概要
 
 * [ニフティクラウドmobile backend](http://mb.cloud.nifty.com/)のプッシュ通知機能は、Googleが提供しているFirebase Cloud Messaging（以下、FCM）と連携することで、通知の配信を行っています
+
+※ FCMはGCM(Google Cloud Messaging)の新バージョンです。
+既にGCMにてプロジェクトの作成・GCMの有効化設定を終えている場合は、継続してご利用いただくことが可能です。
+
 * Androidアプリでプッシュ通知を受信するまでの設定は以下のような流れとなっています
  * FCMプロジェクトの作成とAPIキーの取得
  * ニフティクラウド mobile backendでの設定
