@@ -4,12 +4,12 @@
 
 ## 概要
 
-* [ニフティクラウドmobile backend](http://mb.cloud.nifty.com/)のプッシュ通知機能は、Googleが提供しているCloud Messaging（以下、GCM）と連携することで、通知の配信を行っています
+* [ニフティクラウドmobile backend](http://mb.cloud.nifty.com/)のプッシュ通知機能は、Googleが提供しているFirebase Cloud Messaging（以下、FCM）と連携することで、通知の配信を行っています
 * Androidアプリでプッシュ通知を受信するまでの設定は以下のような流れとなっています
-   * GCMの設定とAPIキーの取得
-   * ニフティクラウド mobile backendでの設定
-   * アプリでの設定
-* 詳しい設定内容は[プッシュ通知（Android）](http://mb.cloud.nifty.com/doc/current/push/basic_usage_android.html)を参照ください
+ * FCMプロジェクトの作成とAPIキーの取得
+ * ニフティクラウド mobile backendでの設定
+ * アプリでの設定
+* 詳しい設定内容は[プッシュ通知（Android）](http://mb.cloud.nifty.com/doc/current/push/basic_usage_android.html)をご参照ください
 
 ## ニフティクラウドmobile backendって何？？
 スマートフォンアプリのバックエンド機能（プッシュ通知・データストア・会員管理・ファイルストア・SNS連携・位置情報検索・スクリプト）が**開発不要**、しかも基本**無料**(注1)で使えるクラウドサービス！今回はデータストアを体験します
@@ -29,28 +29,14 @@
 ## 手順
 ### 0.プッシュ通知機能使うための準備
 
-* [Google Cloud Platform](https://console.cloud.google.com/) にログインします
-* GCMを利用するためプロジェクトを作成し、APIキー（認証用の鍵）を発行します
+ニフティクラウド mobile backendと連携させるためのAPIキーを取得する必要があります。 以下のドキュメントを参考に、FCMプロジェクトの作成とAPIキーの取得を行ってください。
 
-![画像a2](/readme-img/a002.png)
+[mobile backendとFCMの連携に必要な設定](https://github.com/NIFTYCloud-mbaas/ncmb_doc/blob/hotfix/fcm_changes/doc/current/tutorial/push_setup_android.html)
 
-![画像a3](/readme-img/a003.png)
+### 1. [ニフティクラウドmobile backend](http://mb.cloud.nifty.com/)の準備
 
-![画像a4](/readme-img/a004.png)
-
-* プロジェクトコードの確認をします
- 
-![画像a5](/readme-img/a005.png)
-
-* GCMの有効化の設定をします
-
-![画像a6](/readme-img/a006.png)
-
-* 準備は以上です
-
-### 1. [ニフティクラウドmobile backend](http://mb.cloud.nifty.com/)の会員登録とログイン→アプリ作成
-
-* 上記リンクから会員登録（無料）をします登録ができたらログインをすると下図のように「アプリの新規作成」画面が出るのでアプリを作成します
+* 上記リンクから会員登録（無料）をします
+* 登録後、ログインをすると下図のように「アプリの新規作成」画面が出ますので、アプリを作成します
 
 ![画像3](/readme-img/mBassNewProject.png)
 
@@ -59,13 +45,13 @@
 
 ![画像4](/readme-img/mBassAPIkey.png)
 
-* 動作確認後installationクラス(端末情報)が保存される場所も確認しておきましょう
+* 動作確認後、端末情報が保存される場所（データストアのinstallationクラス）を確認しておきましょう
 
 ![画像5](/readme-img/mBassData.png)
 
-* ダッシュボードからアプリ設定→プッシュ通知の設定を行う
-   * プッシュ通知の許可するを設定し、保存します
-   * Google Developer Consoleで取得したAPIキーを設定し、保存します
+* アプリ設定開いてプッシュ通知の設定をします
+   * 「プッシュ通知の許可」で「許可する」選択、「保存する」をクリックします
+   * 「Androidプッシュ通知」の「APIキー」には、FCMでプロジェクト作成時に発行された「Sender ID」を記入し、「保存する」をクリックします
 
 ![画像6](/readme-img/mBassPushEnv.png)
 
@@ -94,21 +80,20 @@
 * それぞれ`YOUR_APPLICATION_KEY`と`YOUR_CLIENT_KEY`の部分を書き換えます
  * このとき、ダブルクォーテーション（`"`）を消さないように注意してください！
 
-### 5. Androidのsender IDキーの設定
+### 5. AndroidのSender IDキーの設定
 
-* GCMから作成されたプロジェクトの後につく番号(#以降数字)が、sender IDです
 * `MainActivity.java`を編集します
 
-![画像10](/readme-img/GCMAPIkey.png)
+![画像10](/readme-img/FCMAPIkey.png)
 
-* `ANDROID_SENDER_ID`の部分を書き換えます
+* `ANDROID_SENDER_ID`の部分を、FCMでプロジェクト作成時に発行された「Sender ID」に書き換えます
  * このとき、ダブルクォーテーション（`"`）を消さないように注意してください！
- 
+
 ### 6. 動作確認
 
 * インストールしたアプリを起動します
  * プッシュ通知の許可を求めるアラートが出たら、必ず許可してください！
- 
+
 ![画像11](/readme-img/Action1.png)
 
 * 起動されたらこの時点でAndroid端末はレジスタレーションIDが取得されます
@@ -146,7 +131,7 @@
 #### ロジック
  * `activity_main.xml`でデザインを作成し、`MainActivity.java`にロジックを書いています
  *  installationクラス(端末情報)が保存される処理は以下のように記述されます
- 
+
 ```java
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -156,7 +141,7 @@
 
         final NCMBInstallation installation = NCMBInstallation.getCurrentInstallation();
 
-        //GCMからRegistrationIdを取得しinstallationに設定する
+        //FCMからRegistrationIdを取得しinstallationに設定する
         installation.getRegistrationIdInBackground("ANDROID_SENDER_ID", new DoneCallback() {
             //installation.getRegistrationIdInBackground("senderId", new DoneCallback() {
                 @Override
@@ -187,4 +172,3 @@
 
 ## 参考
 * ニフティクラウドmobile backend の[ドキュメント（プッシュ通知（Android））](http://mb.cloud.nifty.com/doc/current/push/basic_usage_android.html)をご用意していますので、ご活用ください
-
