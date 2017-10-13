@@ -1,6 +1,7 @@
-# 【Android】プッシュ通知機能！
+# 【Android】プッシュ通知を組み込もう！
+*2016/09/27作成（2017/10/13更新）*
 
-![画像1](/readme-img/OverView.png)
+<center><img src="readme-img/OverView.png" alt="画像1" width="700px"></center>
 
 ## 概要
 
@@ -20,7 +21,8 @@
 
 注1：詳しくは[こちら](http://mb.cloud.nifty.com/price.htm)をご覧ください
 
-![画像2](/readme-img/SdkTypes.png)
+<center><img src="readme-img/SdkTypes.png" alt="画像2" width="700px"></center>
+
 
 ## 動作環境
 * Windows 7 Professional
@@ -29,57 +31,62 @@
 
 ※上記内容で動作確認をしています
 
+<div style="page-break-before:always"></div>
 
 ## 手順
 ### 0.プッシュ通知機能を使うための準備
 
 ニフティクラウド mobile backendと連携させるためのAPIキーを取得する必要があります。 以下のドキュメントを参考に、FCMプロジェクトの作成とAPIキーの取得を行ってください。
 
-__[mobile backendとFCMの連携に必要な設定](http://mb.cloud.nifty.com/doc/current/tutorial/push_setup_android.html)__
+__▼ mobile backendとFCMの連携に必要な設定 ▼__<br>http://mb.cloud.nifty.com/doc/current/tutorial/push_setup_android.html
 
-### 1. [ニフティクラウドmobile backend](http://mb.cloud.nifty.com/)の準備
+### 1. ニフティクラウド mobile backend の準備
 
 * 上記リンクから会員登録（無料）をします
 * 登録後、ログインをすると下図のように「アプリの新規作成」画面が出ますので、アプリを作成します
 
-![画像3](/readme-img/mBassNewProject.png)
+<center><img src="readme-img/mBassNewProject.png" alt="画像3" width="600px"></center>
 
 * アプリ作成されると下図のような画面になります
 * この２種類のAPIキー（アプリケーションキーとクライアントキー）は先ほどインポートしたAndroidStudioで作成するAndroidアプリにニフティクラウドmobile backendの紐付けるため、あとで使います
 
-![画像4](/readme-img/mBassAPIkey.png)
+<center><img src="readme-img/mBassAPIkey.png" alt="画像4" width="600px"></center>
 
 * 動作確認後、端末情報が保存される場所（データストアのinstallationクラス）を確認しておきましょう
 
-![画像5](/readme-img/mBassData.png)
+<center><img src="readme-img/mBassData.png" alt="画像5" width="600px"></center>
+
+<div style="page-break-before:always"></div>
 
 * アプリ設定を開いてプッシュ通知の設定をします
    * 「プッシュ通知の許可」で「許可する」選択、「保存する」をクリックします
    * 「Androidプッシュ通知」の「APIキー」には、FCMでプロジェクト作成時に発行された「サーバーキー」を記入し、「保存する」をクリックします
 
-![画像6](/readme-img/mBassPushEnv.png)
+<center><img src="readme-img/mBassPushEnv.png" alt="画像6" width="600px"></center>
 
-### 2. [GitHub](https://github.com/ncmbadmin/android_push_demo.git)からサンプルプロジェクトのダウンロード
+### 2. GitHub からサンプルプロジェクトのダウンロード
 
-* プロジェクトの[Githubページ](https://github.com/ncmbadmin/android_push_demo.git)から「Clone or download」＞「Download ZIP」をクリックします
+* プロジェクトの [Github ページ](https://github.com/NIFTYCloud-mbaas/android_push_demo)から「 Clone or download 」＞「 Download ZIP 」をクリックします
 * プロジェクトを解凍します
 
-### 3. AndroidStudioでアプリを起動
+### 3. AndroidStudio でアプリを起動
 
-* AndroidStudioを開き、解凍したプロジェクトを選択します
+* AndroidStudio を開き、解凍したプロジェクトを選択します
 
-![画像7](/readme-img/SelectProject.png)
+<center><img src="readme-img/SelectProject.png" alt="画像7" width="500px"></center>
+
+<div style="page-break-before:always"></div>
 
 * プロジェクトを開きます
 
-![画像8](/readme-img/ProjectDesign.png)
+<center><img src="readme-img/ProjectDesign.png" alt="画像8" width="600px"></center>
 
 ### 4. APIキーの設定
 
 * `MainActivity.java`を編集します
 * 先程[ニフティクラウドmobile backend](http://mb.cloud.nifty.com/)のダッシュボード上で確認したAPIキーを貼り付けます
 
-![画像9](/readme-img/AndroidAPIkey.png)
+<center><img src="readme-img/AndroidAPIkey.png" alt="画像9" width="600px"></center>
 
 * それぞれ`YOUR_APPLICATION_KEY`と`YOUR_CLIENT_KEY`の部分を書き換えます
  * このとき、ダブルクォーテーション（`"`）を消さないように注意してください！
@@ -88,7 +95,9 @@ __[mobile backendとFCMの連携に必要な設定](http://mb.cloud.nifty.com/do
 
 * `MainActivity.java`を編集します
 
-![画像10](/readme-img/FCMAPIkey.png)
+<center><img src="readme-img/FCMAPIkey.png" alt="画像10" width="600px"></center>
+
+<div style="page-break-before:always"></div>
 
 * `ANDROID_SENDER_ID`の部分を、FCMでプロジェクト作成時に発行された「Sender ID」に書き換えます
  * このとき、ダブルクォーテーション（`"`）を消さないように注意してください！
@@ -96,19 +105,21 @@ __[mobile backendとFCMの連携に必要な設定](http://mb.cloud.nifty.com/do
 ### 6. 動作確認
 
 * AndroidStudioからビルドする。
- * 「プロジェクト場所」\app\build\outputs\apk\ ***.apk ファイルが生成される
+ * 「プロジェクト場所」`\app\build\outputs\apk\ ***.apk` ファイルが生成される
 
 * インストールしたアプリを起動します
  * プッシュ通知の許可を求めるアラートが出たら、必ず許可してください！
 
-![画像11](/readme-img/Action1.png)
+<center><img src="readme-img/Action1.png" alt="画像11" width="200px"></center>
 
 * 起動されたらこの時点でAndroid端末はレジスタレーションIDが取得されます
 * [ニフティクラウドmobile backend](http://mb.cloud.nifty.com/)のダッシュボードから「データストア (installationクラス(端末情報))」を確認してみましょう！
 
-![画像12](/readme-img/Action2.png)
+<center><img src="readme-img/Action2.png" alt="画像12" width="700px"></center>
 
 * 端末側で起動したアプリは一度閉じておきます
+
+<div style="page-break-before:always"></div>
 
 ### 7. プッシュ通知を送りましょう！
 
@@ -117,65 +128,65 @@ __[mobile backendとFCMの連携に必要な設定](http://mb.cloud.nifty.com/do
 * プッシュ通知のフォームが開かれます
 * 必要な項目を入力してプッシュ通知を作成します
 
-![画像13](/readme-img/Action3.png)
+<center><img src="readme-img/Action3.png" alt="画像13" width="700px"></center>
 
 * Android端末からプッシュ通知を確認しましょう！
 * 少し待つとプッシュ通知が届きます！
 
-![画像14](/readme-img/Action4.png)
+<center><img src="readme-img/Action4.png" alt="画像14" width="200px"></center>
 
 * ダッシュボードからのプッシュ通知結果も確認する
 
-![画像15](/readme-img/Action5.png)
+<center><img src="readme-img/Action5.png" alt="画像15" width="430px"></center>
 
+<div style="page-break-before:always"></div>
 
 ## 解説
 サンプルプロジェクトに実装済みの内容のご紹介
 
 #### SDKのインポートと初期設定
-* ニフティクラウドmobile backend の[ドキュメント（クイックスタート）](http://mb.cloud.nifty.com/doc/current/introduction/quickstart_android.html#/Android/)をご用意していますので、ご活用ください
+* ニフティクラウドmobile backend の[ドキュメント（クイックスタート）](http://mb.cloud.nifty.com/doc/current/introduction/quickstart_android.html)をご用意していますので、ご活用ください
 
 #### ロジック
- * `activity_main.xml`でデザインを作成し、`MainActivity.java`にロジックを書いています
- *  installationクラス(端末情報)が保存される処理は以下のように記述されます
+* `activity_main.xml`でデザインを作成し、`MainActivity.java`にロジックを書いています
+*  installationクラス(端末情報)が保存される処理は以下のように記述されます
 
 ```java
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    //**************** APIキーの設定とSDKの初期化 **********************
+    NCMB.initialize(this, "YOUR_APPLICATION_KEY", "YOUR_CLIENT_KEY");
 
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        //**************** APIキーの設定とSDKの初期化 **********************
-        NCMB.initialize(this, "YOUR_APPLICATION_KEY", "YOUR_CLIENT_KEY");
+    final NCMBInstallation installation = NCMBInstallation.getCurrentInstallation();
 
-        final NCMBInstallation installation = NCMBInstallation.getCurrentInstallation();
-
-        //FCMからRegistrationIdを取得しinstallationに設定する
-        installation.getRegistrationIdInBackground("ANDROID_SENDER_ID", new DoneCallback() {
-            //installation.getRegistrationIdInBackground("senderId", new DoneCallback() {
-                @Override
-            public void done(NCMBException e) {
-                if (e == null) {
-                    installation.saveInBackground(new DoneCallback() {
-                        @Override
-                        public void done(NCMBException e) {
-                            if (e == null) {
-                                //保存成功
-                            } else if (NCMBException.DUPLICATE_VALUE.equals(e.getCode())) {
-                                //保存失敗 : registrationID重複
-                                updateInstallation(installation);
-                            } else {
-                                //保存失敗 : その他
-                            }
+    //FCMからRegistrationIdを取得しinstallationに設定する
+    installation.getRegistrationIdInBackground("ANDROID_SENDER_ID", new DoneCallback() {
+        //installation.getRegistrationIdInBackground("senderId", new DoneCallback() {
+            @Override
+        public void done(NCMBException e) {
+            if (e == null) {
+                installation.saveInBackground(new DoneCallback() {
+                    @Override
+                    public void done(NCMBException e) {
+                        if (e == null) {
+                            //保存成功
+                        } else if (NCMBException.DUPLICATE_VALUE.equals(e.getCode())) {
+                            //保存失敗 : registrationID重複
+                            updateInstallation(installation);
+                        } else {
+                            //保存失敗 : その他
                         }
-                    });
-                } else {
-                    //ID取得失敗
-                }
+                    }
+                });
+            } else {
+                //ID取得失敗
             }
-        });
+        }
+    });
 
-        setContentView(R.layout.activity_main);
-    }
+    setContentView(R.layout.activity_main);
+}
 ```
 
 ## 参考
-* ニフティクラウドmobile backend の[ドキュメント（プッシュ通知（Android））](http://mb.cloud.nifty.com/doc/current/push/basic_usage_android.html)をご用意していますので、ご活用ください
+* ニフティクラウドmobile backend の[ドキュメント（プッシュ通知（Android）](http://mb.cloud.nifty.com/doc/current/push/basic_usage_android.html)をご用意していますので、ご活用ください
