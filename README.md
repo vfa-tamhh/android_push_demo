@@ -5,7 +5,7 @@
 
 ## 概要
 
-* [ニフクラ mobile backend](http://mb.cloud.nifty.com/)のプッシュ通知機能は、Googleが提供しているFirebase Cloud Messaging（以下、FCM）と連携することで、通知の配信を行っています
+* [ニフクラ mobile backend](https://mbaas.nifcloud.com/)のプッシュ通知機能は、Googleが提供しているFirebase Cloud Messaging（以下、FCM）と連携することで、通知の配信を行っています
 
 ※ FCMはGCM(Google Cloud Messaging)の新バージョンです。
 既にGCMにてプロジェクトの作成・GCMの有効化設定を終えている場合は、継続してご利用いただくことが可能です。
@@ -14,12 +14,12 @@
  * FCMプロジェクトの作成とAPIキーの取得
  * ニフクラ  mobile backendでの設定
  * アプリでの設定
-* 詳しい設定内容は[プッシュ通知（Android）](http://mb.cloud.nifty.com/doc/current/push/basic_usage_android.html)をご参照ください
+* 詳しい設定内容は[プッシュ通知（Android）](https://mbaas.nifcloud.com/doc/current/push/basic_usage_android.html)をご参照ください
 
 ## ニフクラ mobile backendって何？？
 スマートフォンアプリのバックエンド機能（プッシュ通知・データストア・会員管理・ファイルストア・SNS連携・位置情報検索・スクリプト）が**開発不要**、しかも基本**無料**(注1)で使えるクラウドサービス！今回はデータストアを体験します
 
-注1：詳しくは[こちら](http://mb.cloud.nifty.com/price.htm)をご覧ください
+注1：詳しくは[こちら](https://mbaas.nifcloud.com/price.htm)をご覧ください
 
 <center><img src="readme-img/SdkTypes.png" alt="画像2" width="700px"></center>
 
@@ -38,7 +38,7 @@
 
 ニフクラ  mobile backendと連携させるためのAPIキーを取得する必要があります。 以下のドキュメントを参考に、FCMプロジェクトの作成とAPIキーの取得を行ってください。
 
-__▼ mobile backendとFCMの連携に必要な設定 ▼__<br>http://mb.cloud.nifty.com/doc/current/tutorial/push_setup_android.html
+__▼ mobile backendとFCMの連携に必要な設定 ▼__<br>https://mbaas.nifcloud.com/doc/current/tutorial/push_setup_android.html
 
 ### 1. ニフクラ  mobile backend の準備
 
@@ -84,7 +84,7 @@ __▼ mobile backendとFCMの連携に必要な設定 ▼__<br>http://mb.cloud.n
 ### 4. APIキーの設定
 
 * `MainActivity.java`を編集します
-* 先程[ニフクラ mobile backend](http://mb.cloud.nifty.com/)のダッシュボード上で確認したAPIキーを貼り付けます
+* 先程[ニフクラ mobile backend](https://mbaas.nifcloud.com/)のダッシュボード上で確認したAPIキーを貼り付けます
 
 <center><img src="readme-img/AndroidAPIkey.png" alt="画像9" width="600px"></center>
 
@@ -113,7 +113,7 @@ __▼ mobile backendとFCMの連携に必要な設定 ▼__<br>http://mb.cloud.n
 <center><img src="readme-img/Action1.png" alt="画像11" width="200px"></center>
 
 * 起動されたらこの時点でAndroid端末はレジスタレーションIDが取得されます
-* [ニフクラ mobile backend](http://mb.cloud.nifty.com/)のダッシュボードから「データストア (installationクラス(端末情報))」を確認してみましょう！
+* [ニフクラ mobile backend](https://mbaas.nifcloud.com/)のダッシュボードから「データストア (installationクラス(端末情報))」を確認してみましょう！
 
 <center><img src="readme-img/Action2.png" alt="画像12" width="700px"></center>
 
@@ -145,7 +145,7 @@ __▼ mobile backendとFCMの連携に必要な設定 ▼__<br>http://mb.cloud.n
 サンプルプロジェクトに実装済みの内容のご紹介
 
 #### SDKのインポートと初期設定
-* ニフクラ mobile backend の[ドキュメント（クイックスタート）](http://mb.cloud.nifty.com/doc/current/introduction/quickstart_android.html)をご用意していますので、ご活用ください
+* ニフクラ mobile backend の[ドキュメント（クイックスタート）](https://mbaas.nifcloud.com/doc/current/introduction/quickstart_android.html)をご用意していますので、ご活用ください
 
 #### ロジック
 * `activity_main.xml`でデザインを作成し、`MainActivity.java`にロジックを書いています
@@ -189,4 +189,4 @@ protected void onCreate(Bundle savedInstanceState) {
 ```
 
 ## 参考
-* ニフクラ mobile backend の[ドキュメント（プッシュ通知（Android）](http://mb.cloud.nifty.com/doc/current/push/basic_usage_android.html)をご用意していますので、ご活用ください
+* ニフクラ mobile backend の[ドキュメント（プッシュ通知（Android）](https://mbaas.nifcloud.com/doc/current/push/basic_usage_android.html)をご用意していますので、ご活用ください
