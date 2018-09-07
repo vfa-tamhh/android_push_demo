@@ -155,34 +155,7 @@ __▼ mobile backendとFCMの連携に必要な設定 ▼__<br>https://mbaas.nif
 protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     //**************** APIキーの設定とSDKの初期化 **********************
-    NCMB.initialize(this, "YOUR_APPLICATION_KEY", "YOUR_CLIENT_KEY");
-
-    final NCMBInstallation installation = NCMBInstallation.getCurrentInstallation();
-
-    //FCMからRegistrationIdを取得しinstallationに設定する
-    installation.getRegistrationIdInBackground("ANDROID_SENDER_ID", new DoneCallback() {
-        //installation.getRegistrationIdInBackground("senderId", new DoneCallback() {
-            @Override
-        public void done(NCMBException e) {
-            if (e == null) {
-                installation.saveInBackground(new DoneCallback() {
-                    @Override
-                    public void done(NCMBException e) {
-                        if (e == null) {
-                            //保存成功
-                        } else if (NCMBException.DUPLICATE_VALUE.equals(e.getCode())) {
-                            //保存失敗 : registrationID重複
-                            updateInstallation(installation);
-                        } else {
-                            //保存失敗 : その他
-                        }
-                    }
-                });
-            } else {
-                //ID取得失敗
-            }
-        }
-    });
+    NCMB.initialize(this.getApplicationContext(), "YOUR_APPLICATION_KEY", "YOUR_CLIENT_KEY");
 
     setContentView(R.layout.activity_main);
 }
