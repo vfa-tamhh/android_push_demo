@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="mbaas.com.nifty.ncmbpushquickstart" >
+    package="mbaas.com.nifcloud.ncmbpushquickstart" >
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -8,7 +8,7 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-    <permission android:name="mbaas.com.nifty.ncmbpushquickstart.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+    <permission android:name="mbaas.com.nifcloud.ncmbpushquickstart.permission.C2D_MESSAGE" android:protectionLevel="signature" />
     <uses-permission android:name="mbaas.com.nifty.ncmbpushquickstart.permission.C2D_MESSAGE" />
 
 
@@ -29,7 +29,7 @@
         <meta-data android:name="notificationOverlap" android:value="0"/>
 
         <activity
-            android:name=".MainActivity"
+            android:name="mbaas.com.nifcloud.ncmbpushquickstart.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
