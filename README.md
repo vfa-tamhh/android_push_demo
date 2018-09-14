@@ -64,7 +64,7 @@ __▼ google-service.jsonとFirebase秘密鍵の設定方法について ▼__<b
    * 「プッシュ通知の許可」で「許可する」選択、「保存する」をクリックします
    * 「FCMプッシュ通知」の「FCMプッシュ通知設定ファイルの選択」というボタンをクリックして、 FirebaseからダウンロードしたFirebaseの秘密鍵jsonファイルをアップロードします
 
-<center><img src="readme-img/mBassPushEnv.png" alt="画像6" width="600px"></center>
+<center><img src="readme-img/mBassPushEnv.png" alt="画像6" width="800px"></center>
 
 ### 2. GitHub からサンプルプロジェクトのダウンロード
 
